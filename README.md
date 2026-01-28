@@ -1,25 +1,115 @@
-# Wonderful Landing Page Template
+# Cumple Plan Landing Page
 
-### <a href="https://wonderfullandingpage.github.io/mylandingpage/">LIVE DEMO</a> 
+A Next.js 14 landing page template with TypeScript and App Router.
 
-![](https://github.com/wonderfullandingpage/mylandingpage/blob/master/imgs/01.jpg?raw=true)
-![](https://github.com/wonderfullandingpage/mylandingpage/blob/master/imgs/02.jpg?raw=true)
+## Tech Stack
 
-## Description
-This is a ReactJS based landing page template, fit for a startup company/service with a one page view.All 'visual' data can be easily modified by changing the data.json file. The project fork is from https://github.com/issaafalkattan/React-Landing-Page-Template. Thanks to the author for a great project.
+- Next.js 14 (App Router)
+- TypeScript
+- Bootstrap 3 CSS
+- Font Awesome
+- particles-bg (animated background)
+- react-simple-image-viewer (gallery lightbox)
+- @emailjs/browser (contact form)
 
-## Make it Yours!
-### 1. Preps
-You will need to have <a href="https://nodejs.org/">Node JS</a> installed on your pc. 
+## Getting Started
 
-### 2. Clone Files
-After cloning the files, you will have to run ```yarn``` followed by ```yarn start``` in the CLI
-### 3. Add your own data 
-Change the data in the ```data.json``` file as well as add any images to ```public/img/```
-You can also change styles by modifying the ```public/css``` files.
+### Prerequisites
 
+You will need [Node.js](https://nodejs.org/) (v18 or later) installed.
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+This generates a static export in the `/out` directory.
+
+### Preview Production Build
+
+```bash
+npm run start
+```
+
+## Customization
+
+### Content
+
+Edit `src/data/data.json` to change:
+- Header title and paragraph
+- About section text
+- Features, Services, Testimonials
+- Team members
+- Contact information
+
+### Images
+
+Add images to `public/img/`:
+- `about.jpg` - About section image
+- `portfolio/` - Gallery images (01-small.jpg, 01-large.jpg, etc.)
+- `team/` - Team member photos
+- `testimonials/` - Testimonial avatars
+
+### Styles
+
+Modify CSS files in `public/css/`:
+- `style.css` - Main custom styles
+- `bootstrap.css` - Bootstrap framework
+
+### Contact Form
+
+To enable the contact form, update the EmailJS credentials in `src/components/Contact.tsx`:
+```typescript
+emailjs.sendForm(
+  'YOUR_SERVICE_ID',
+  'YOUR_TEMPLATE_ID',
+  e.currentTarget,
+  'YOUR_USER_ID'
+)
+```
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx    # Root layout with metadata
+│   ├── page.tsx      # Main page
+│   └── globals.css   # Global styles
+├── components/
+│   ├── Navigation.tsx
+│   ├── Header.tsx
+│   ├── Features.tsx
+│   ├── About.tsx
+│   ├── Services.tsx
+│   ├── Gallery.tsx
+│   ├── Testimonials.tsx
+│   ├── Team.tsx
+│   ├── Contact.tsx
+│   └── Footer.tsx
+├── data/
+│   └── data.json     # Site content
+└── types/
+    └── index.ts      # TypeScript interfaces
+```
 
 ## Credits
-##### Free CSS 
-<a href="https://www.free-css.com/assets/files/free-css-templates/preview/page234/interact/">Free-CSS.com </a>
 
+- Original template by [Issaaf Kattan](https://github.com/issaafalkattan/React-Landing-Page-Template)
+- Design by [TemplateWire](http://www.templatewire.com)
+- [Free-CSS.com](https://www.free-css.com/assets/files/free-css-templates/preview/page234/interact/)
