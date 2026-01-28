@@ -1,137 +1,137 @@
 {
   "Header": {
     "title": "Cumple Plan",
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
+    "paragraph": "Encuentra regalos, descuentos, sorteos y sorpresas de las mejores marcas para ti. ¡Aquí tu cumpleaños sí se celebra!"
   },
   "About": {
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "paragraph": "No queremos que pierdas tiempo buscando tus beneficios. Con tu registro, accedes a todo en un solo lugar, con ofertas claras y siempre actualizadas. Descubre ofertas de cumpleaños de las mejores marcas. Beneficios reales, seleccionados para tu día especial — porque mereces ser celebrado.",
     "Why": [
-      "Lorem ipsum dolor",
-      "Tempor incididunt",
-      "Lorem ipsum dolor",
-      "Incididunt ut labore"
+      "Regalos exclusivos",
+      "Descuentos especiales",
+      "Sorteos automáticos",
+      "Experiencias verificadas"
     ],
     "Why2": [
-      "Aliquip ex ea commodo",
-      "Lorem ipsum dolor",
-      "Exercitation ullamco",
-      "Lorem ipsum dolor"
+      "+100 Marcas Aliadas",
+      "Ofertas Personalizadas",
+      "Registro Gratis",
+      "Beneficios reales"
     ]
   },
   "Services": [
     {
-      "icon": "fa fa-wordpress",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-gift",
+      "name": "Regalos",
+      "text": "Encuentra regalos pensados para tu cumpleaños, reunidos en un solo lugar y listos para usar."
     },
     {
-      "icon": "fa fa-cart-arrow-down",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-bolt",
+      "name": "Descuentos",
+      "text": "Ingresa tu fecha de cumpleaños una sola vez y accede a descuentos exclusivos, sin registros repetidos."
     },
     {
-      "icon": "fa fa-cloud-download",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-trophy",
+      "name": "Sorteos",
+      "text": "Participa automáticamente en sorteos especiales por tu cumpleaños, con beneficios reales y verificados."
     },
     {
-      "icon": "fa fa-language",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-star",
+      "name": "Experiencias",
+      "text": "Accede a experiencias ofrecidas por marcas verificadas, con información clara y beneficios genuinos."
     },
     {
-      "icon": "fa fa-plane",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-users",
+      "name": "Audiencia con Alta Intención",
+      "text": "Llega a clientes en uno de los momentos más personales y celebratorios del año."
     },
     {
-      "icon": "fa fa-pie-chart",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-heart",
+      "name": "Conexión Emocional",
+      "text": "Construye lealtad duradera siendo parte de los recuerdos de cumpleaños de tus clientes."
     }
   ],
   "Testimonials": [
     {
       "img": "img/testimonials/01.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"Encontré todos mis beneficios de cumpleaños en un solo lugar. ¡Súper fácil y rápido!\"",
+      "name": "María García"
     },
     {
       "img": "img/testimonials/02.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"Me encantó poder acceder a descuentos exclusivos sin tener que registrarme en cada marca.\"",
+      "name": "Carlos Rodríguez"
     },
     {
       "img": "img/testimonials/03.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"Cumple Plan hizo que mi cumpleaños fuera especial con ofertas que realmente valían la pena.\"",
+      "name": "Ana Martínez"
     },
     {
       "img": "img/testimonials/04.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"Organizar mi fiesta nunca fue tan fácil. Las ofertas de las marcas aliadas son increíbles.\"",
+      "name": "Pedro Sánchez"
     },
     {
       "img": "img/testimonials/05.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"Beneficios reales y verificados. Por fin una plataforma que cumple lo que promete.\"",
+      "name": "Laura Torres"
     },
     {
       "img": "img/testimonials/06.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"El registro fue súper simple y los descuentos llegaron directo a mi correo. ¡Excelente!\"",
+      "name": "Diego López"
     }
   ],
   "Team": [
     {
       "img": "img/team/01.jpg",
-      "name": "John Doe",
-      "job": "Director"
+      "name": "Urban Threads",
+      "job": "Moda - Tiendas"
     },
     {
       "img": "img/team/02.jpg",
-      "name": "Mike Doe",
-      "job": "Senior Designer"
+      "name": "Harmony Fitness",
+      "job": "Gimnasio - Bienestar"
     },
     {
       "img": "img/team/03.jpg",
-      "name": "Jane Doe",
-      "job": "Senior Designer"
+      "name": "Café y Grano",
+      "job": "Cafetería - Comida y Bebidas"
     },
     {
       "img": "img/team/04.jpg",
-      "name": "Karen Doe",
-      "job": "Project Manager"
+      "name": "Dulces Celebraciones",
+      "job": "Pastelería - Comida y Bebidas"
     }
   ],
   "Contact": {
-    "address": "4321 California St, San Francisco, CA 12345 ",
-    "phone": "+1 123 456 1234",
-    "email": "info@company.com",
-    "facebook": "fb.com",
-    "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "address": "Lima, Perú",
+    "phone": "+51 999 999 999",
+    "email": "info@cumpleplan.com",
+    "facebook": "fb.com/cumpleplan",
+    "twitter": "twitter.com/cumpleplan",
+    "youtube": "youtube.com/cumpleplan"
   },
   "Features": [
     {
-      "icon": "fa fa-comments-o",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "icon": "fa fa-calendar",
+      "title": "Planifica",
+      "text": "Organiza tu fiesta de cumpleaños de forma fácil, ordenada y feliz con nuestra plataforma intuitiva."
     },
     {
-      "icon": "fa fa-bullhorn",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "icon": "fa fa-glass",
+      "title": "Celebra",
+      "text": "Disfruta de beneficios exclusivos de las mejores marcas aliadas en tu día especial."
     },
     {
-      "icon": "fa fa-group",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "icon": "fa fa-smile-o",
+      "title": "Disfruta",
+      "text": "Accede a regalos, descuentos y experiencias verificadas sin búsquedas interminables."
     },
     {
-      "icon": "fa fa-magic",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "icon": "fa fa-building",
+      "title": "Para Empresas",
+      "text": "Únete a nuestra red de marcas premium y llega a miles de clientes cuando están listos para celebrar."
     }
   ]
 }
