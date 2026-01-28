@@ -1,0 +1,8 @@
+{
+  "components/Header.tsx -> particles-bg": {
+    "id": "components/Header.tsx -> particles-bg",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_particles-bg_dist_index_es_js.js"
+    ]
+  }
+}
