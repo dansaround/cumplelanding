@@ -40,6 +40,9 @@ const b2bSubmitMessageAtom = atom<{
   text: string;
 } | null>(null);
 
+const B2B_GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxM_x6b13ll9t9hDx--Gqn4uwKZDguma0L9WM_8jCPwBUJFK3SXCPahLY_NuPQ7YzErbg/exec";
+
 const valueProps = [
   {
     icon: "🎯",
@@ -94,23 +97,53 @@ export const Contact = () => {
     setIsLoading(true);
 
     try {
-      // Simulate API call - replace with actual endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-      setSubmitMessage({
-        type: "success",
-        text: "¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.",
+      const response = await fetch(B2B_GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+        signal: controller.signal,
       });
 
-      setFormData({
-        nombreNegocio: "",
-        correo: "",
-        industria: "",
-      });
-    } catch {
+      clearTimeout(timeoutId);
+
+      // With no-cors mode, we can't read the response
+      // If we get here without an error, we assume success
+      if (response.type === "opaque" || response.ok) {
+        setSubmitMessage({
+          type: "success",
+          text: "¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.",
+        });
+
+        setFormData({
+          nombreNegocio: "",
+          correo: "",
+          industria: "",
+        });
+      }
+    } catch (error) {
+      let errorMessage =
+        "Hubo un error al enviar el formulario. Por favor intenta de nuevo.";
+
+      if (error instanceof Error) {
+        if (error.name === "AbortError") {
+          errorMessage =
+            "La solicitud tardó demasiado. Verifica tu conexión e intenta de nuevo.";
+        } else if (
+          error.message.includes("fetch") ||
+          error.message.includes("network")
+        ) {
+          errorMessage =
+            "Error de conexión. Verifica tu internet e intenta de nuevo.";
+        }
+      }
+
       setSubmitMessage({
         type: "error",
-        text: "Hubo un error al enviar el formulario. Por favor intenta de nuevo.",
+        text: errorMessage,
       });
     } finally {
       setIsLoading(false);
