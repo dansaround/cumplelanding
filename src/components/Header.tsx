@@ -178,11 +178,11 @@ export const Header = () => {
     <>
       <header
         id="header"
-        className="min-h-screen bg-gradient-to-br from-whitesmoke to-white dark:from-gray-900 dark:to-gray-800 relative flex items-center py-10 px-5"
+        className="min-h-screen bg-gradient-to-br from-whitesmoke to-white dark:from-gray-900 dark:to-gray-800 relative flex items-start lg:items-center py-10 px-5 overflow-x-hidden"
       >
         <ParticlesBg
           type="circle"
-          bg={{ zIndex: 0, position: "absolute", top: 0 }}
+          bg={{ zIndex: 0, position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
           color="#FE4A4966"
           num={10}
         />
@@ -258,7 +258,7 @@ export const Header = () => {
           </div>
 
           {/* Right Section - Form */}
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 flex items-center justify-center px-4 lg:px-0">
             <div className="bg-white/95 dark:bg-gray-800/95 rounded-3xl shadow-xl p-6 lg:p-8 w-full max-w-md lg:w-[90%]">
               {/* Form Header */}
               <div className="text-center mb-6">
@@ -297,7 +297,10 @@ export const Header = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Nombre */}
                 <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label
+                    htmlFor="nombre"
+                    className="block text-sm font-medium text-dark dark:text-white mb-1.5"
+                  >
                     Nombre <span className="text-tomato">*</span>
                   </label>
                   <input
@@ -305,7 +308,9 @@ export const Header = () => {
                     type="text"
                     aria-required="true"
                     aria-invalid={!!formErrors.nombre}
-                    aria-describedby={formErrors.nombre ? "nombre-error" : undefined}
+                    aria-describedby={
+                      formErrors.nombre ? "nombre-error" : undefined
+                    }
                     autoComplete="name"
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white
                       ${formErrors.nombre ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
@@ -314,7 +319,11 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.nombre && (
-                    <p id="nombre-error" className="text-red-500 text-xs mt-1" role="alert">
+                    <p
+                      id="nombre-error"
+                      className="text-red-500 text-xs mt-1"
+                      role="alert"
+                    >
                       {formErrors.nombre}
                     </p>
                   )}
@@ -322,7 +331,10 @@ export const Header = () => {
 
                 {/* Cumpleaños */}
                 <div>
-                  <label htmlFor="cumpleanos" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label
+                    htmlFor="cumpleanos"
+                    className="block text-sm font-medium text-dark dark:text-white mb-1.5"
+                  >
                     Tu Cumpleaños <span className="text-tomato">*</span>
                   </label>
                   <input
@@ -332,7 +344,9 @@ export const Header = () => {
                     maxLength={10}
                     aria-required="true"
                     aria-invalid={!!formErrors.cumpleanos}
-                    aria-describedby={formErrors.cumpleanos ? "cumpleanos-error" : undefined}
+                    aria-describedby={
+                      formErrors.cumpleanos ? "cumpleanos-error" : undefined
+                    }
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white dark:placeholder-gray-400
                       ${formErrors.cumpleanos ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
                     value={formData.cumpleanos}
@@ -340,7 +354,11 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.cumpleanos && (
-                    <p id="cumpleanos-error" className="text-red-500 text-xs mt-1" role="alert">
+                    <p
+                      id="cumpleanos-error"
+                      className="text-red-500 text-xs mt-1"
+                      role="alert"
+                    >
                       {formErrors.cumpleanos}
                     </p>
                   )}
@@ -348,7 +366,10 @@ export const Header = () => {
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-dark dark:text-white mb-1.5"
+                  >
                     Correo electrónico <span className="text-tomato">*</span>
                   </label>
                   <input
@@ -357,7 +378,9 @@ export const Header = () => {
                     placeholder="tu@ejemplo.com"
                     aria-required="true"
                     aria-invalid={!!formErrors.email}
-                    aria-describedby={formErrors.email ? "email-error" : undefined}
+                    aria-describedby={
+                      formErrors.email ? "email-error" : undefined
+                    }
                     autoComplete="email"
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white dark:placeholder-gray-400
                       ${formErrors.email ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
@@ -366,7 +389,11 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.email && (
-                    <p id="email-error" className="text-red-500 text-xs mt-1" role="alert">
+                    <p
+                      id="email-error"
+                      className="text-red-500 text-xs mt-1"
+                      role="alert"
+                    >
                       {formErrors.email}
                     </p>
                   )}
@@ -374,7 +401,10 @@ export const Header = () => {
 
                 {/* Teléfono */}
                 <div>
-                  <label htmlFor="telefono" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label
+                    htmlFor="telefono"
+                    className="block text-sm font-medium text-dark dark:text-white mb-1.5"
+                  >
                     Teléfono <span className="text-tomato">*</span>
                   </label>
                   <input
@@ -382,7 +412,9 @@ export const Header = () => {
                     type="tel"
                     aria-required="true"
                     aria-invalid={!!formErrors.telefono}
-                    aria-describedby={formErrors.telefono ? "telefono-error" : undefined}
+                    aria-describedby={
+                      formErrors.telefono ? "telefono-error" : undefined
+                    }
                     autoComplete="tel"
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white
                       ${formErrors.telefono ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
@@ -391,7 +423,11 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.telefono && (
-                    <p id="telefono-error" className="text-red-500 text-xs mt-1" role="alert">
+                    <p
+                      id="telefono-error"
+                      className="text-red-500 text-xs mt-1"
+                      role="alert"
+                    >
                       {formErrors.telefono}
                     </p>
                   )}
@@ -399,7 +435,10 @@ export const Header = () => {
 
                 {/* DNI */}
                 <div>
-                  <label htmlFor="dni" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label
+                    htmlFor="dni"
+                    className="block text-sm font-medium text-dark dark:text-white mb-1.5"
+                  >
                     DNI{" "}
                     <span className="text-gray-400 font-normal">
                       (opcional)
@@ -417,7 +456,11 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.dni && (
-                    <p id="dni-error" className="text-red-500 text-xs mt-1" role="alert">
+                    <p
+                      id="dni-error"
+                      className="text-red-500 text-xs mt-1"
+                      role="alert"
+                    >
                       {formErrors.dni}
                     </p>
                   )}
