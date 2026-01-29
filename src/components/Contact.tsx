@@ -151,7 +151,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="b2b" className="py-20 bg-whitesmoke dark:bg-gray-800">
+    <section id="b2b" className="py-20 bg-cream dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">

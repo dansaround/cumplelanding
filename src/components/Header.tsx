@@ -178,7 +178,7 @@ export const Header = () => {
     <>
       <header
         id="header"
-        className="min-h-screen bg-gradient-to-br from-whitesmoke to-white dark:from-gray-900 dark:to-gray-800 relative flex items-start lg:items-center py-10 px-5 overflow-x-hidden"
+        className="min-h-screen bg-gradient-to-br from-cream to-white dark:from-gray-900 dark:to-gray-800 relative flex items-start lg:items-center py-10 px-5 overflow-x-hidden"
       >
         <ParticlesBg
           type="circle"

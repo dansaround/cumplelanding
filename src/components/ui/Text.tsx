@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 type TextSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl'
-type TextColor = 'dark' | 'naples' | 'tomato' | 'whitesmoke' | 'whitesmoke-dark' | 'white' | 'gray'
+type TextColor = 'dark' | 'naples' | 'tomato' | 'cream' | 'cream-dark' | 'white' | 'gray'
 
 interface TextProps {
   children: ReactNode
@@ -28,8 +28,8 @@ const colorClasses: Record<TextColor, string> = {
   dark: 'text-dark',
   naples: 'text-naples',
   tomato: 'text-tomato',
-  whitesmoke: 'text-whitesmoke',
-  'whitesmoke-dark': 'text-whitesmoke-dark',
+  cream: 'text-cream',
+  'cream-dark': 'text-cream-dark',
   white: 'text-white',
   gray: 'text-gray-600 dark:text-gray-300',
 }

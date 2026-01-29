@@ -54,7 +54,7 @@ export const Features = () => {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="bg-whitesmoke dark:bg-gray-800 rounded-2xl p-6 hover:shadow-lg transition-shadow text-center md:text-left"
+              className="bg-cream dark:bg-gray-800 rounded-2xl p-6 hover:shadow-lg transition-shadow text-center md:text-left"
             >
               <div className={`w-14 h-14 ${benefit.color} rounded-xl flex items-center justify-center text-2xl mb-4 mx-auto md:mx-0`}>
                 {benefit.icon}
@@ -81,7 +81,7 @@ export const Features = () => {
             </Text.Regular>
 
             {/* Placeholder for allies */}
-            <div className="bg-whitesmoke dark:bg-gray-800 rounded-2xl p-12 border-2 border-dashed border-gray-300 dark:border-gray-600">
+            <div className="bg-cream dark:bg-gray-800 rounded-2xl p-12 border-2 border-dashed border-gray-300 dark:border-gray-600">
               <Text.Regular size="lg" color="gray" as="p">
                 Próximamente: Logos de marcas aliadas
               </Text.Regular>

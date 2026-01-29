@@ -122,7 +122,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className="bg-whitesmoke text-dark font-poppins antialiased">
+      <body className="bg-cream text-dark font-poppins antialiased">
         {/* Skip Link for Accessibility */}
         <a
           href="#main-content"

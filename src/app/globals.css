@@ -5,10 +5,10 @@
   --color-naples: #F9DC5C;
   --color-tomato: #FE4A49;
 
-  /* Whitesmoke variations */
-  --color-whitesmoke: #f5f5f5;
-  --color-whitesmoke-light: #ffffff;
-  --color-whitesmoke-dark: #c4c4c4;
+  /* Cream variations */
+  --color-cream: #f9f5e9;
+  --color-cream-light: #ffffff;
+  --color-cream-dark: #c4c4c4;
   --color-dark: #0a0a0a;
 
   /* Font Family */
@@ -25,7 +25,7 @@ html {
 
 body {
   font-family: var(--font-poppins);
-  background-color: var(--color-whitesmoke);
+  background-color: var(--color-cream);
   color: var(--color-dark);
   transition: background-color 0.3s ease, color 0.3s ease;
 }

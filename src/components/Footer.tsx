@@ -50,7 +50,7 @@ export const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <Text.Regular size="sm" color="whitesmoke-dark" as="p">
+            <Text.Regular size="sm" color="cream-dark" as="p">
               &copy; {currentYear} CumplePlan. Todos los derechos reservados.
             </Text.Regular>
 
@@ -58,13 +58,13 @@ export const Footer = () => {
             <div className="flex gap-6">
               <button
                 onClick={() => setShowTerms(true)}
-                className="text-whitesmoke-dark hover:text-naples transition-colors text-sm"
+                className="text-cream-dark hover:text-naples transition-colors text-sm"
               >
                 Términos
               </button>
               <button
                 onClick={() => setShowPrivacy(true)}
-                className="text-whitesmoke-dark hover:text-naples transition-colors text-sm"
+                className="text-cream-dark hover:text-naples transition-colors text-sm"
               >
                 Privacidad
               </button>

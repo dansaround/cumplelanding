@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
       <head>
         {/* Fonts, JSON-LD scripts */}
       </head>
-      <body className="bg-whitesmoke text-dark font-poppins">
+      <body className="bg-cream text-dark font-poppins">
         <a href="#main-content">Skip to content</a>
         {children}
       </body>
@@ -252,10 +252,10 @@ All styling uses Tailwind utility classes:
 
 ```css
 @theme {
-  --color-dark: #2c3e50;
-  --color-naples: #f7c948;
-  --color-tomato: #e74c3c;
-  --color-whitesmoke: #f5f5f5;
+  --color-dark: #0a0a0a;
+  --color-naples: #F9DC5C;
+  --color-tomato: #FE4A49;
+  --color-cream: #f9f5e9;
   --font-poppins: 'Poppins', sans-serif;
 }
 ```
