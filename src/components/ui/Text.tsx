@@ -9,6 +9,7 @@ interface TextProps {
   color?: TextColor
   className?: string
   as?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label'
+  id?: string
 }
 
 const sizeClasses: Record<TextSize, string> = {
@@ -39,9 +40,11 @@ const Bold = ({
   color = 'dark',
   className = '',
   as: Component = 'span',
+  id,
 }: TextProps) => {
   return (
     <Component
+      id={id}
       className={`font-bold ${sizeClasses[size]} ${colorClasses[color]} ${className}`}
     >
       {children}
@@ -55,9 +58,11 @@ const SemiBold = ({
   color = 'dark',
   className = '',
   as: Component = 'span',
+  id,
 }: TextProps) => {
   return (
     <Component
+      id={id}
       className={`font-semibold ${sizeClasses[size]} ${colorClasses[color]} ${className}`}
     >
       {children}
@@ -71,9 +76,11 @@ const Regular = ({
   color = 'dark',
   className = '',
   as: Component = 'span',
+  id,
 }: TextProps) => {
   return (
     <Component
+      id={id}
       className={`font-normal ${sizeClasses[size]} ${colorClasses[color]} ${className}`}
     >
       {children}
@@ -87,9 +94,11 @@ const Light = ({
   color = 'dark',
   className = '',
   as: Component = 'span',
+  id,
 }: TextProps) => {
   return (
     <Component
+      id={id}
       className={`font-light ${sizeClasses[size]} ${colorClasses[color]} ${className}`}
     >
       {children}

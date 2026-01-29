@@ -6,12 +6,14 @@ import { Footer } from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="pt-16">
+    <>
       <Navigation />
-      <Header />
-      <Features />
-      <Contact />
+      <main id="main-content" className="pt-16">
+        <Header />
+        <Features />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }

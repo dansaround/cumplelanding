@@ -170,11 +170,15 @@ export const Contact = () => {
 
               {/* Submit Message */}
               {submitMessage && (
-                <div className={`p-3 rounded-lg mb-4 text-sm text-center ${
-                  submitMessage.type === 'success'
-                    ? 'bg-green-100 text-green-800'
-                    : 'bg-red-100 text-red-600'
-                }`}>
+                <div
+                  role="alert"
+                  aria-live="polite"
+                  className={`p-3 rounded-lg mb-4 text-sm text-center ${
+                    submitMessage.type === 'success'
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-red-100 text-red-600'
+                  }`}
+                >
                   {submitMessage.text}
                 </div>
               )}
@@ -183,11 +187,16 @@ export const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Nombre del Negocio */}
                 <div>
-                  <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label htmlFor="nombreNegocio" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
                     Nombre del Negocio <span className="text-tomato">*</span>
                   </label>
                   <input
+                    id="nombreNegocio"
                     type="text"
+                    aria-required="true"
+                    aria-invalid={!!formErrors.nombreNegocio}
+                    aria-describedby={formErrors.nombreNegocio ? 'nombreNegocio-error' : undefined}
+                    autoComplete="organization"
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-800 dark:text-white
                       ${formErrors.nombreNegocio ? 'border-red-500' : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10'}`}
                     value={formData.nombreNegocio}
@@ -195,18 +204,23 @@ export const Contact = () => {
                     disabled={isLoading}
                   />
                   {formErrors.nombreNegocio && (
-                    <p className="text-red-500 text-xs mt-1">{formErrors.nombreNegocio}</p>
+                    <p id="nombreNegocio-error" className="text-red-500 text-xs mt-1" role="alert">{formErrors.nombreNegocio}</p>
                   )}
                 </div>
 
                 {/* Correo */}
                 <div>
-                  <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label htmlFor="b2b-correo" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
                     Correo de Contacto <span className="text-tomato">*</span>
                   </label>
                   <input
+                    id="b2b-correo"
                     type="email"
                     placeholder="contacto@empresa.com"
+                    aria-required="true"
+                    aria-invalid={!!formErrors.correo}
+                    aria-describedby={formErrors.correo ? 'b2b-correo-error' : undefined}
+                    autoComplete="email"
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-800 dark:text-white dark:placeholder-gray-400
                       ${formErrors.correo ? 'border-red-500' : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10'}`}
                     value={formData.correo}
@@ -214,16 +228,20 @@ export const Contact = () => {
                     disabled={isLoading}
                   />
                   {formErrors.correo && (
-                    <p className="text-red-500 text-xs mt-1">{formErrors.correo}</p>
+                    <p id="b2b-correo-error" className="text-red-500 text-xs mt-1" role="alert">{formErrors.correo}</p>
                   )}
                 </div>
 
                 {/* Industria */}
                 <div>
-                  <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label htmlFor="industria" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
                     Industria <span className="text-tomato">*</span>
                   </label>
                   <select
+                    id="industria"
+                    aria-required="true"
+                    aria-invalid={!!formErrors.industria}
+                    aria-describedby={formErrors.industria ? 'industria-error' : undefined}
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none bg-white dark:bg-gray-800 dark:text-white
                       ${formErrors.industria ? 'border-red-500' : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10'}`}
                     value={formData.industria}
@@ -238,7 +256,7 @@ export const Contact = () => {
                     ))}
                   </select>
                   {formErrors.industria && (
-                    <p className="text-red-500 text-xs mt-1">{formErrors.industria}</p>
+                    <p id="industria-error" className="text-red-500 text-xs mt-1" role="alert">{formErrors.industria}</p>
                   )}
                 </div>
 

@@ -281,6 +281,8 @@ export const Header = () => {
               {/* Submit Message */}
               {submitMessage && (
                 <div
+                  role="alert"
+                  aria-live="polite"
                   className={`p-3 rounded-lg mb-4 text-sm text-center ${
                     submitMessage.type === "success"
                       ? "bg-green-100 text-green-800"
@@ -295,11 +297,16 @@ export const Header = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Nombre */}
                 <div>
-                  <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label htmlFor="nombre" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
                     Nombre <span className="text-tomato">*</span>
                   </label>
                   <input
+                    id="nombre"
                     type="text"
+                    aria-required="true"
+                    aria-invalid={!!formErrors.nombre}
+                    aria-describedby={formErrors.nombre ? "nombre-error" : undefined}
+                    autoComplete="name"
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white
                       ${formErrors.nombre ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
                     value={formData.nombre}
@@ -307,7 +314,7 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.nombre && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p id="nombre-error" className="text-red-500 text-xs mt-1" role="alert">
                       {formErrors.nombre}
                     </p>
                   )}
@@ -315,13 +322,17 @@ export const Header = () => {
 
                 {/* Cumpleaños */}
                 <div>
-                  <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label htmlFor="cumpleanos" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
                     Tu Cumpleaños <span className="text-tomato">*</span>
                   </label>
                   <input
+                    id="cumpleanos"
                     type="text"
                     placeholder="dd/mm/aaaa"
                     maxLength={10}
+                    aria-required="true"
+                    aria-invalid={!!formErrors.cumpleanos}
+                    aria-describedby={formErrors.cumpleanos ? "cumpleanos-error" : undefined}
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white dark:placeholder-gray-400
                       ${formErrors.cumpleanos ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
                     value={formData.cumpleanos}
@@ -329,7 +340,7 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.cumpleanos && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p id="cumpleanos-error" className="text-red-500 text-xs mt-1" role="alert">
                       {formErrors.cumpleanos}
                     </p>
                   )}
@@ -337,12 +348,17 @@ export const Header = () => {
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label htmlFor="email" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
                     Correo electrónico <span className="text-tomato">*</span>
                   </label>
                   <input
+                    id="email"
                     type="email"
                     placeholder="tu@ejemplo.com"
+                    aria-required="true"
+                    aria-invalid={!!formErrors.email}
+                    aria-describedby={formErrors.email ? "email-error" : undefined}
+                    autoComplete="email"
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white dark:placeholder-gray-400
                       ${formErrors.email ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
                     value={formData.email}
@@ -350,7 +366,7 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.email && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p id="email-error" className="text-red-500 text-xs mt-1" role="alert">
                       {formErrors.email}
                     </p>
                   )}
@@ -358,11 +374,16 @@ export const Header = () => {
 
                 {/* Teléfono */}
                 <div>
-                  <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label htmlFor="telefono" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
                     Teléfono <span className="text-tomato">*</span>
                   </label>
                   <input
+                    id="telefono"
                     type="tel"
+                    aria-required="true"
+                    aria-invalid={!!formErrors.telefono}
+                    aria-describedby={formErrors.telefono ? "telefono-error" : undefined}
+                    autoComplete="tel"
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white
                       ${formErrors.telefono ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
                     value={formData.telefono}
@@ -370,7 +391,7 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.telefono && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p id="telefono-error" className="text-red-500 text-xs mt-1" role="alert">
                       {formErrors.telefono}
                     </p>
                   )}
@@ -378,14 +399,17 @@ export const Header = () => {
 
                 {/* DNI */}
                 <div>
-                  <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
+                  <label htmlFor="dni" className="block text-sm font-medium text-dark dark:text-white mb-1.5">
                     DNI{" "}
                     <span className="text-gray-400 font-normal">
                       (opcional)
                     </span>
                   </label>
                   <input
+                    id="dni"
                     type="text"
+                    aria-invalid={!!formErrors.dni}
+                    aria-describedby={formErrors.dni ? "dni-error" : undefined}
                     className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white
                       ${formErrors.dni ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
                     value={formData.dni}
@@ -393,7 +417,7 @@ export const Header = () => {
                     disabled={isLoading}
                   />
                   {formErrors.dni && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p id="dni-error" className="text-red-500 text-xs mt-1" role="alert">
                       {formErrors.dni}
                     </p>
                   )}
