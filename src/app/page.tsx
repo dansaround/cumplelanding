@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div>
       <Navigation />
-      <Header data={data.Header} />
+      <Header />
       <Features data={data.Features} />
       <About data={data.About} />
       <Services data={data.Services} />
