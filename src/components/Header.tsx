@@ -17,7 +17,8 @@ const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 // Zod schema for form validation
 const formSchema = z.object({
   nombre: z.string().min(1, "El nombre es requerido"),
-  cumpleanos: z.string()
+  cumpleanos: z
+    .string()
     .min(1, "La fecha de cumpleaños es requerida")
     .regex(dateRegex, "Formato inválido. Usa dd/mm/aaaa"),
   email: z.string().min(1, "El correo es requerido").email("Email inválido"),
@@ -215,7 +216,7 @@ export const Header = () => {
               size="lg"
               color="gray"
               as="p"
-              className="leading-relaxed mb-8"
+              className="leading-relaxed mb-8 dark:text-white"
             >
               Encuentra regalos, descuentos, sorteos y sorpresas de las mejores
               marcas para ti
