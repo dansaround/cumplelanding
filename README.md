@@ -21,13 +21,13 @@ You will need [Node.js](https://nodejs.org/) (v18 or later) installed.
 ### Installation
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Development
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### Production Build
 
 ```bash
-npm run build
+pnpm build
 ```
 
 This generates a static export in the `/out` directory.
@@ -43,7 +43,7 @@ This generates a static export in the `/out` directory.
 ### Preview Production Build
 
 ```bash
-npm run start
+pnpm start
 ```
 
 ## Customization

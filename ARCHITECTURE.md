@@ -262,7 +262,7 @@ Styles come from multiple sources:
 
 ## Build Output
 
-Running `npm run build` creates a static export in `/out`:
+Running `pnpm build` creates a static export in `/out`:
 
 ```
 out/
