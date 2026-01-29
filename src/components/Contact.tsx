@@ -136,7 +136,7 @@ export const Contact = () => {
 
             <div className="space-y-6">
               {valueProps.map((prop) => (
-                <div key={prop.title} className="flex gap-4">
+                <div key={prop.title} className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
                   <div className="w-12 h-12 bg-white dark:bg-gray-700 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
                     {prop.icon}
                   </div>

@@ -31,7 +31,7 @@ const colorClasses: Record<TextColor, string> = {
   whitesmoke: 'text-whitesmoke',
   'whitesmoke-dark': 'text-whitesmoke-dark',
   white: 'text-white',
-  gray: 'text-gray-600',
+  gray: 'text-gray-600 dark:text-gray-300',
 }
 
 const Bold = ({

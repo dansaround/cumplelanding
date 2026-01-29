@@ -216,7 +216,7 @@ export const Header = () => {
               size="lg"
               color="gray"
               as="p"
-              className="leading-relaxed mb-8 dark:text-white"
+              className="leading-relaxed mb-8"
             >
               Encuentra regalos, descuentos, sorteos y sorpresas de las mejores
               marcas para ti

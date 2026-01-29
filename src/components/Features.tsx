@@ -54,9 +54,9 @@ export const Features = () => {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="bg-whitesmoke dark:bg-gray-800 rounded-2xl p-6 hover:shadow-lg transition-shadow"
+              className="bg-whitesmoke dark:bg-gray-800 rounded-2xl p-6 hover:shadow-lg transition-shadow text-center md:text-left"
             >
-              <div className={`w-14 h-14 ${benefit.color} rounded-xl flex items-center justify-center text-2xl mb-4`}>
+              <div className={`w-14 h-14 ${benefit.color} rounded-xl flex items-center justify-center text-2xl mb-4 mx-auto md:mx-0`}>
                 {benefit.icon}
               </div>
               <Text.Bold size="lg" color="dark" as="h3" className="mb-2 dark:text-white">

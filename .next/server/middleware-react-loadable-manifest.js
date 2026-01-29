@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"components/Header.tsx -> particles-bg\":{\"id\":\"components/Header.tsx -> particles-bg\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_pnpm_particles-bg_2_5_5_node_modules_particles-bg_dist_index_es_js.js\"]}}"
