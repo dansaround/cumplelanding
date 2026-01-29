@@ -1,6 +1,27 @@
-/* Global styles - additional styles can be added here */
-/* Main styles are loaded from /public/css/style.css */
+@import "tailwindcss";
 
+@theme {
+  /* Brand Colors */
+  --color-naples: #F9DC5C;
+  --color-tomato: #FE4A49;
+
+  /* Whitesmoke variations */
+  --color-whitesmoke: #f5f5f5;
+  --color-whitesmoke-light: #ffffff;
+  --color-whitesmoke-dark: #c4c4c4;
+  --color-dark: #0a0a0a;
+
+  /* Font Family */
+  --font-poppins: "Poppins", sans-serif;
+}
+
+/* Base styles */
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-poppins);
+  background-color: var(--color-whitesmoke);
+  color: var(--color-dark);
 }
