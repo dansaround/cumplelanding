@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { atom, useAtom } from "jotai";
 import { z } from "zod";
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type ChangeEvent } from "react";
 import { Text, Button, PopUp } from "@/components/ui";
 import { termsOfService, privacyPolicy } from "@/content/legal";
 
@@ -11,13 +11,18 @@ const ParticlesBg = dynamic(() => import("particles-bg"), {
   ssr: false,
 });
 
+// Date validation regex for dd/mm/yyyy format
+const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+
 // Zod schema for form validation
 const formSchema = z.object({
   nombre: z.string().min(1, "El nombre es requerido"),
-  cumpleanos: z.string().min(1, "La fecha de cumpleaños es requerida"),
-  email: z.string().email("Email inválido").optional().or(z.literal("")),
+  cumpleanos: z.string()
+    .min(1, "La fecha de cumpleaños es requerida")
+    .regex(dateRegex, "Formato inválido. Usa dd/mm/aaaa"),
+  email: z.string().min(1, "El correo es requerido").email("Email inválido"),
   telefono: z.string().min(1, "El teléfono es requerido"),
-  dni: z.string().min(1, "El DNI es requerido"),
+  dni: z.string().optional().or(z.literal("")),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -42,6 +47,21 @@ const submitMessageAtom = atom<{
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyNoVhmjqHCc4CmnOxhK2vjGujln0WDomPX_Kawo6YuVnwsPO-bOUk3OoU1gDciUC-u-Q/exec";
 
+// Format date input as dd/mm/yyyy
+const formatDateInput = (value: string): string => {
+  // Remove non-numeric characters
+  const numbers = value.replace(/\D/g, "");
+
+  // Apply mask
+  if (numbers.length <= 2) {
+    return numbers;
+  } else if (numbers.length <= 4) {
+    return `${numbers.slice(0, 2)}/${numbers.slice(2)}`;
+  } else {
+    return `${numbers.slice(0, 2)}/${numbers.slice(2, 4)}/${numbers.slice(4, 8)}`;
+  }
+};
+
 export const Header = () => {
   const [formData, setFormData] = useAtom(formDataAtom);
   const [formErrors, setFormErrors] = useAtom(formErrorsAtom);
@@ -55,6 +75,11 @@ export const Header = () => {
     if (formErrors[field]) {
       setFormErrors((prev) => ({ ...prev, [field]: undefined }));
     }
+  };
+
+  const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatDateInput(e.target.value);
+    updateField("cumpleanos", formatted);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -178,10 +203,10 @@ export const Header = () => {
                 as="span"
                 className="block dark:text-white"
               >
-                Celebra con
+                ¡Aquí tu cumpleaños
               </Text.Bold>
               <Text.Bold size="5xl" color="naples" as="span" className="block">
-                beneficios exclusivos
+                sí se celebra!
               </Text.Bold>
             </h1>
 
@@ -192,9 +217,8 @@ export const Header = () => {
               as="p"
               className="leading-relaxed mb-8"
             >
-              Descubre ofertas de cumpleaños de las mejores marcas. Beneficios
-              reales, seleccionados para tu día especial — porque mereces ser
-              celebrado.
+              Encuentra regalos, descuentos, sorteos y sorpresas de las mejores
+              marcas para ti
             </Text.Regular>
 
             {/* Features */}
@@ -294,11 +318,13 @@ export const Header = () => {
                     Tu Cumpleaños <span className="text-tomato">*</span>
                   </label>
                   <input
-                    type="date"
-                    className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white
+                    type="text"
+                    placeholder="dd/mm/aaaa"
+                    maxLength={10}
+                    className={`w-full px-4 py-2.5 border-2 rounded-xl text-sm transition-all outline-none dark:bg-gray-700 dark:text-white dark:placeholder-gray-400
                       ${formErrors.cumpleanos ? "border-red-500" : "border-gray-200 dark:border-gray-600 hover:border-gray-300 focus:border-tomato focus:ring-2 focus:ring-tomato/10"}`}
                     value={formData.cumpleanos}
-                    onChange={(e) => updateField("cumpleanos", e.target.value)}
+                    onChange={handleDateChange}
                     disabled={isLoading}
                   />
                   {formErrors.cumpleanos && (
@@ -311,10 +337,7 @@ export const Header = () => {
                 {/* Email */}
                 <div>
                   <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
-                    Correo electrónico{" "}
-                    <span className="text-gray-400 font-normal">
-                      (opcional)
-                    </span>
+                    Correo electrónico <span className="text-tomato">*</span>
                   </label>
                   <input
                     type="email"
@@ -355,7 +378,10 @@ export const Header = () => {
                 {/* DNI */}
                 <div>
                   <label className="block text-sm font-medium text-dark dark:text-white mb-1.5">
-                    DNI <span className="text-tomato">*</span>
+                    DNI{" "}
+                    <span className="text-gray-400 font-normal">
+                      (opcional)
+                    </span>
                   </label>
                   <input
                     type="text"

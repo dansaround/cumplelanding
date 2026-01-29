@@ -15,6 +15,9 @@
   --font-poppins: "Poppins", sans-serif;
 }
 
+/* Dark mode variant */
+@variant dark (&:where(.dark, .dark *));
+
 /* Base styles */
 html {
   scroll-behavior: smooth;
@@ -24,4 +27,12 @@ body {
   font-family: var(--font-poppins);
   background-color: var(--color-whitesmoke);
   color: var(--color-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode body */
+.dark body,
+html.dark body {
+  background-color: #111827;
+  color: #f5f5f5;
 }
