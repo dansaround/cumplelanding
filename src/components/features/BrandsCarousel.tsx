@@ -22,7 +22,7 @@ export const BrandsCarousel = () => {
   }
 
   return (
-    <div className="border-t border-gray-200 dark:border-gray-700 pt-16">
+    <div id="aliados" className="border-t border-gray-200 dark:border-gray-700 pt-16 scroll-mt-24">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
         <div className="text-center md:text-left">
