@@ -4,7 +4,7 @@
   "description": "Descubre ofertas de cumpleaños de las mejores marcas. Regalos, descuentos, sorteos y experiencias.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5f5f5",
+  "background_color": "#f9f5e9",
   "theme_color": "#FE4A49",
   "icons": [
     {

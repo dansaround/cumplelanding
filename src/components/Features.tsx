@@ -1,4 +1,5 @@
 import { Text } from '@/components/ui'
+import { BrandsCarousel, AllBrands } from '@/components/features'
 
 const benefits = [
   {
@@ -69,25 +70,11 @@ export const Features = () => {
           ))}
         </div>
 
-        {/* Aliados Destacados Section */}
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-16">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">
-              <span className="text-dark dark:text-white">Aliados </span>
-              <span className="text-tomato">Destacados</span>
-            </h3>
-            <Text.Regular size="base" color="gray" as="p" className="mb-8">
-              Marcas que celebran contigo
-            </Text.Regular>
+        {/* Aliados Destacados - Carousel */}
+        <BrandsCarousel />
 
-            {/* Placeholder for allies */}
-            <div className="bg-cream dark:bg-gray-800 rounded-2xl p-12 border-2 border-dashed border-gray-300 dark:border-gray-600">
-              <Text.Regular size="lg" color="gray" as="p">
-                Próximamente: Logos de marcas aliadas
-              </Text.Regular>
-            </div>
-          </div>
-        </div>
+        {/* Ver Más - All Brands */}
+        <AllBrands />
       </div>
     </section>
   )
