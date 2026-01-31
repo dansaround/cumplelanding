@@ -101,6 +101,15 @@ export const Header = () => {
     setFormErrors({});
     setIsLoading(true);
 
+    if (!GOOGLE_SCRIPT_URL) {
+      setSubmitMessage({
+        type: "error",
+        text: "Error de configuración. Por favor contacta al administrador.",
+      });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",

@@ -95,6 +95,15 @@ export const Contact = () => {
     setFormErrors({});
     setIsLoading(true);
 
+    if (!B2B_GOOGLE_SCRIPT_URL) {
+      setSubmitMessage({
+        type: "error",
+        text: "Error de configuración. Por favor contacta al administrador.",
+      });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000);
