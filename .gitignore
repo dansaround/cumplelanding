@@ -10,18 +10,31 @@
 
 # next.js
 /.next/
+/out/
 
 # production
 /build
 
+# typescript
+tsconfig.tsbuildinfo
+
 # misc
 .DS_Store
+*.local
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
+# logs
 npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code
+.claude/
