@@ -40,8 +40,7 @@ const b2bSubmitMessageAtom = atom<{
   text: string;
 } | null>(null);
 
-const B2B_GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxM_x6b13ll9t9hDx--Gqn4uwKZDguma0L9WM_8jCPwBUJFK3SXCPahLY_NuPQ7YzErbg/exec";
+const B2B_GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_B2B_FORM_URL;
 
 const valueProps = [
   {

@@ -45,8 +45,7 @@ const submitMessageAtom = atom<{
   text: string;
 } | null>(null);
 
-const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyNoVhmjqHCc4CmnOxhK2vjGujln0WDomPX_Kawo6YuVnwsPO-bOUk3OoU1gDciUC-u-Q/exec";
+const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_LANDING_FORM_URL;
 
 // Format date input as dd/mm/yyyy
 const formatDateInput = (value: string): string => {
