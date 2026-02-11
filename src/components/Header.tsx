@@ -24,6 +24,9 @@ const formSchema = z.object({
   email: z.string().min(1, "El correo es requerido").email("Email inválido"),
   telefono: z.string().min(1, "El teléfono es requerido"),
   dni: z.string().optional().or(z.literal("")),
+  consentimiento: z.boolean().refine((val) => val === true, {
+    message: "Debes aceptar los términos y condiciones",
+  }),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -36,6 +39,7 @@ const formDataAtom = atom<FormData>({
   email: "",
   telefono: "",
   dni: "",
+  consentimiento: false,
 });
 
 const formErrorsAtom = atom<FormErrors>({});
@@ -70,7 +74,7 @@ export const Header = () => {
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
 
-  const updateField = (field: keyof FormData, value: string) => {
+  const updateField = (field: keyof FormData, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (formErrors[field]) {
       setFormErrors((prev) => ({ ...prev, [field]: undefined }));
@@ -129,6 +133,7 @@ export const Header = () => {
         email: "",
         telefono: "",
         dni: "",
+        consentimiento: false,
       });
     } catch {
       setSubmitMessage({
@@ -474,6 +479,61 @@ export const Header = () => {
                   )}
                 </div>
 
+                {/* Consentimiento */}
+                <div>
+                  <div className="flex items-start gap-2">
+                    <input
+                      id="consentimiento-header"
+                      type="checkbox"
+                      aria-required="true"
+                      aria-invalid={!!formErrors.consentimiento}
+                      aria-describedby={
+                        formErrors.consentimiento
+                          ? "consentimiento-header-error"
+                          : undefined
+                      }
+                      className={`mt-1 w-4 h-4 rounded border-2 transition-all cursor-pointer
+                        ${formErrors.consentimiento ? "border-red-500" : "border-gray-300 dark:border-gray-600 hover:border-tomato focus:ring-2 focus:ring-tomato/20"}`}
+                      checked={formData.consentimiento}
+                      onChange={(e) =>
+                        updateField("consentimiento", e.target.checked)
+                      }
+                      disabled={isLoading}
+                    />
+                    <label
+                      htmlFor="consentimiento-header"
+                      className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed cursor-pointer"
+                    >
+                      Al continuar, aceptas nuestros{" "}
+                      <button
+                        type="button"
+                        onClick={() => setShowTerms(true)}
+                        className="text-tomato hover:underline"
+                      >
+                        Términos de Servicio
+                      </button>{" "}
+                      y{" "}
+                      <button
+                        type="button"
+                        onClick={() => setShowPrivacy(true)}
+                        className="text-tomato hover:underline"
+                      >
+                        Política de Privacidad
+                      </button>{" "}
+                      <span className="text-tomato">*</span>
+                    </label>
+                  </div>
+                  {formErrors.consentimiento && (
+                    <p
+                      id="consentimiento-header-error"
+                      className="text-red-500 text-xs mt-1"
+                      role="alert"
+                    >
+                      {formErrors.consentimiento}
+                    </p>
+                  )}
+                </div>
+
                 {/* Submit Button */}
                 <Button
                   type="submit"
@@ -486,26 +546,6 @@ export const Header = () => {
                   Ver Mis Ofertas de Cumpleaños
                 </Button>
               </form>
-
-              {/* Legal */}
-              <p className="text-xs text-gray-400 text-center mt-4 leading-relaxed">
-                Al continuar, aceptas nuestros{" "}
-                <button
-                  type="button"
-                  onClick={() => setShowTerms(true)}
-                  className="text-tomato hover:underline"
-                >
-                  Términos de Servicio
-                </button>{" "}
-                y{" "}
-                <button
-                  type="button"
-                  onClick={() => setShowPrivacy(true)}
-                  className="text-tomato hover:underline"
-                >
-                  Política de Privacidad
-                </button>
-              </p>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ const benefits = [
   {
     icon: '🏷️',
     title: 'Descuentos',
-    description: 'Ingresa tu fecha de cumpleaños una sola vez y accede a descuentos exclusivos, sin registros repetidos.',
+    description: 'Registra tu cumpleaños y accede a descuentos únicos, sin registros repetidos.',
     color: 'bg-tomato/10',
   },
   {
@@ -23,7 +23,7 @@ const benefits = [
   {
     icon: '✨',
     title: 'Experiencias',
-    description: 'Accede a experiencias ofrecidas por marcas verificadas, con información clara y beneficios genuinos.',
+    description: 'Accede a experiencias ofrecidas por nuestras marcas aliadas, con información clara y beneficios genuinos.',
     color: 'bg-blue-100 dark:bg-blue-900/30',
   },
 ]
@@ -70,7 +70,7 @@ export const Features = () => {
           ))}
         </div>
 
-        {/* Aliados Destacados - Carousel */}
+        {/* Beneficios Destacados - Carousel */}
         <BrandsCarousel />
 
         {/* Ver Más - All Brands */}

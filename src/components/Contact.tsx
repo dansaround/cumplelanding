@@ -21,6 +21,9 @@ const b2bFormSchema = z.object({
   nombreNegocio: z.string().min(1, "El nombre del negocio es requerido"),
   correo: z.string().email("Email inválido").min(1, "El correo es requerido"),
   industria: z.string().min(1, "Selecciona una industria"),
+  consentimiento: z.boolean().refine((val) => val === true, {
+    message: "Debes aceptar la política de privacidad",
+  }),
 });
 
 type B2BFormData = z.infer<typeof b2bFormSchema>;
@@ -31,6 +34,7 @@ const b2bFormDataAtom = atom<B2BFormData>({
   nombreNegocio: "",
   correo: "",
   industria: "",
+  consentimiento: false,
 });
 
 const b2bFormErrorsAtom = atom<B2BFormErrors>({});
@@ -69,7 +73,7 @@ export const Contact = () => {
   const [isLoading, setIsLoading] = useAtom(b2bIsLoadingAtom);
   const [submitMessage, setSubmitMessage] = useAtom(b2bSubmitMessageAtom);
 
-  const updateField = (field: keyof B2BFormData, value: string) => {
+  const updateField = (field: keyof B2BFormData, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (formErrors[field]) {
       setFormErrors((prev) => ({ ...prev, [field]: undefined }));
@@ -130,6 +134,7 @@ export const Contact = () => {
           nombreNegocio: "",
           correo: "",
           industria: "",
+          consentimiento: false,
         });
       }
     } catch (error) {
@@ -168,9 +173,6 @@ export const Contact = () => {
               ¿Quieres que tu marca{" "}
             </span>
             <span className="text-tomato">aparezca aquí?</span>
-            <span className="text-dark dark:text-white">
-              ¿Quieres que tu marca{" "}
-            </span>
           </h2>
           <Text.Regular
             size="base"
@@ -187,7 +189,7 @@ export const Contact = () => {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
           {/* Left - Value Props */}
           <div className="flex-1">
-            <h3 className="text-xl font-bold mb-8">
+            <h3 className="text-xl font-bold mb-8 text-center lg:text-left">
               <span className="text-dark dark:text-white">¿Por qué ser </span>
               <span className="text-naples">aliado?</span>
             </h3>
@@ -364,6 +366,47 @@ export const Contact = () => {
                       role="alert"
                     >
                       {formErrors.industria}
+                    </p>
+                  )}
+                </div>
+
+                {/* Consentimiento */}
+                <div>
+                  <div className="flex items-start gap-2">
+                    <input
+                      id="consentimiento"
+                      type="checkbox"
+                      aria-required="true"
+                      aria-invalid={!!formErrors.consentimiento}
+                      aria-describedby={
+                        formErrors.consentimiento
+                          ? "consentimiento-error"
+                          : undefined
+                      }
+                      className={`mt-1 w-4 h-4 rounded border-2 transition-all cursor-pointer
+                        ${formErrors.consentimiento ? "border-red-500" : "border-gray-300 dark:border-gray-600 hover:border-tomato focus:ring-2 focus:ring-tomato/20"}`}
+                      checked={formData.consentimiento}
+                      onChange={(e) =>
+                        updateField("consentimiento", e.target.checked)
+                      }
+                      disabled={isLoading}
+                    />
+                    <label
+                      htmlFor="consentimiento"
+                      className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed cursor-pointer"
+                    >
+                      Al continuar, aceptas nuestros Términos de Servicio y
+                      Política de Privacidad{" "}
+                      <span className="text-tomato">*</span>
+                    </label>
+                  </div>
+                  {formErrors.consentimiento && (
+                    <p
+                      id="consentimiento-error"
+                      className="text-red-500 text-xs mt-1"
+                      role="alert"
+                    >
+                      {formErrors.consentimiento}
                     </p>
                   )}
                 </div>

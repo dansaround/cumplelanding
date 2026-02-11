@@ -15,23 +15,23 @@ export const AllBrands = () => {
   return (
     <div className="mt-12">
       {/* Toggle button */}
-      <div className="text-center">
+      <div className="flex justify-center">
         <Button
           variant="secondary"
           size="lg"
           onClick={toggleExpanded}
           aria-expanded={isExpanded}
           aria-controls="all-brands-content"
-          className="gap-2"
+          className="gap-2 whitespace-nowrap"
         >
-          {isExpanded ? 'Ver Menos' : 'Ver Más Aliados'}
+          {isExpanded ? 'Ver Menos' : 'Ver Más'}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+            className={`w-5 h-5 transition-transform duration-300 shrink-0 ${isExpanded ? 'rotate-180' : ''}`}
             aria-hidden="true"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -56,7 +56,7 @@ export const AllBrands = () => {
           </div>
 
           {/* Footer message */}
-          <div className="text-center mt-10">
+          <div className="flex flex-col items-center mt-10">
             <Text.Regular size="base" color="gray" as="p" className="mb-4">
               Y muchos más se suman cada mes
             </Text.Regular>

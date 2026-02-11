@@ -27,7 +27,7 @@ export const BrandsCarousel = () => {
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
         <div className="text-center md:text-left">
           <h3 className="text-2xl md:text-3xl font-bold mb-2">
-            <span className="text-dark dark:text-white">Aliados </span>
+            <span className="text-dark dark:text-white">Beneficios </span>
             <span className="text-tomato">Destacados</span>
           </h3>
           <Text.Regular size="base" color="gray" as="p">
@@ -43,7 +43,7 @@ export const BrandsCarousel = () => {
             onClick={() => scroll('left')}
             disabled={!canScrollLeft}
             aria-label="Ver ofertas anteriores"
-            className="rounded-full w-10 h-10 p-0"
+            className="rounded-full w-10 h-10 p-0 border-naples text-naples hover:bg-naples hover:text-dark disabled:border-gray-300 disabled:text-gray-300 dark:border-naples dark:text-naples dark:hover:bg-naples dark:hover:text-dark dark:disabled:border-gray-600 dark:disabled:text-gray-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ export const BrandsCarousel = () => {
             onClick={() => scroll('right')}
             disabled={!canScrollRight}
             aria-label="Ver más ofertas"
-            className="rounded-full w-10 h-10 p-0"
+            className="rounded-full w-10 h-10 p-0 border-naples text-naples hover:bg-naples hover:text-dark disabled:border-gray-300 disabled:text-gray-300 dark:border-naples dark:text-naples dark:hover:bg-naples dark:hover:text-dark dark:disabled:border-gray-600 dark:disabled:text-gray-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,10 +85,10 @@ export const BrandsCarousel = () => {
         ref={scrollRef}
         onScroll={handleScroll}
         onKeyDown={handleKeyDown}
-        className="flex gap-4 md:gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory -mx-4 px-4 focus:outline-none focus:ring-2 focus:ring-tomato focus:ring-offset-2 rounded-lg"
+        className="flex gap-4 md:gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory -mx-4 px-4 outline-none focus-visible:ring-2 focus-visible:ring-tomato focus-visible:ring-offset-2 rounded-lg cursor-grab active:cursor-grabbing"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         role="region"
-        aria-label="Carrusel de aliados destacados. Usa las flechas izquierda y derecha para navegar."
+        aria-label="Carrusel de beneficios destacados. Usa las flechas izquierda y derecha para navegar."
         tabIndex={0}
       >
         {infiniteBrands.map((brand, index) => (

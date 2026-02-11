@@ -2,6 +2,7 @@ import { Navigation } from '@/components/Navigation'
 import { Header } from '@/components/Header'
 import { Features } from '@/components/Features'
 import { Contact } from '@/components/Contact'
+import { FAQ } from '@/components/FAQ'
 import { Footer } from '@/components/Footer'
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Header />
         <Features />
         <Contact />
+        <FAQ />
       </main>
       <Footer />
     </>

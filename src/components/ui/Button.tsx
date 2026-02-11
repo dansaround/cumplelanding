@@ -36,6 +36,7 @@ export const Button = ({
   return (
     <button
       className={`
+        flex items-center justify-center
         ${variantClasses[variant]}
         ${sizeClasses[size]}
         ${fullWidth ? 'w-full' : ''}

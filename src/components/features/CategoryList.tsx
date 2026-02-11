@@ -26,23 +26,35 @@ export const CategoryList = ({ category }: CategoryListProps) => {
       </div>
 
       {/* Brands list */}
-      <ul className="space-y-2" aria-label={`Marcas de ${category}`}>
+      <div className="space-y-4" aria-label={`Marcas de ${category}`}>
         {brands.map((brand) => (
-          <li key={brand.name}>
-            <button
-              type="button"
-              className="text-left w-full text-gray-600 dark:text-gray-300 hover:text-tomato dark:hover:text-tomato transition-colors text-sm py-1 focus:outline-none focus:ring-2 focus:ring-tomato focus:ring-offset-2 rounded"
-              aria-label={`Ver beneficios de ${brand.name}`}
-              onClick={() => {
-                // TODO: Implementar modal de detalles de marca
-                console.log(`Ver detalles de ${brand.name}`)
-              }}
-            >
+          <div key={brand.name} className="space-y-1.5">
+            {/* Brand name */}
+            <Text.SemiBold size="sm" color="dark" as="h5" className="dark:text-white">
               {brand.name}
-            </button>
-          </li>
+            </Text.SemiBold>
+
+            {/* Benefits list */}
+            <ul className="space-y-1 pl-3">
+              {brand.benefits.map((benefit, idx) => (
+                <li key={idx}>
+                  <a
+                    href="#"
+                    className="text-xs text-gray-600 dark:text-gray-400 hover:text-tomato dark:hover:text-tomato transition-colors inline-block"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      // TODO: Implementar modal de detalles del beneficio
+                      console.log(`Ver detalles: ${brand.name} - ${benefit}`)
+                    }}
+                  >
+                    • {benefit}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
+      </div>
     </article>
   )
 }
