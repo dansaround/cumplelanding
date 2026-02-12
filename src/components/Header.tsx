@@ -23,7 +23,11 @@ const formSchema = z.object({
     .regex(dateRegex, "Formato inválido. Usa dd/mm/aaaa"),
   email: z.string().min(1, "El correo es requerido").email("Email inválido"),
   telefono: z.string().min(1, "El teléfono es requerido"),
-  dni: z.string().optional().or(z.literal("")),
+  dni: z
+    .string()
+    .refine((val) => val === "" || /^\d{8}$/.test(val), {
+      message: "El DNI debe tener exactamente 8 dígitos numéricos",
+    }),
   consentimiento: z.boolean().refine((val) => val === true, {
     message: "Debes aceptar los términos y condiciones",
   }),
@@ -204,7 +208,7 @@ export const Header = () => {
           {/* Left Section - Content */}
           <div className="flex-1 flex flex-col justify-center pl-4 lg:pl-8 pr-4 lg:pr-5 text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-naples/30 text-naples px-4 py-2 rounded-full text-sm font-medium mb-6 w-fit mx-auto lg:mx-0">
+            <div className="inline-flex items-center gap-2 bg-naples/60 text-dark dark:bg-naples/40 dark:text-naples px-4 py-2 rounded-full text-sm font-medium mb-6 w-fit mx-auto lg:mx-0">
               <span>🎁</span>
               <span>Tu cumple, tus recompensas</span>
             </div>
