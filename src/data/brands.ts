@@ -1,3 +1,5 @@
+import { atom } from 'jotai'
+
 export type CategoryKey =
   | 'Comida y Bebidas'
   | 'Ropa y accesorios'
@@ -11,16 +13,20 @@ export type CategoryConfig = {
   image: string
 }
 
-export type BrandBenefit = {
-  benefit: string
+export type Brand = {
+  id: string
   brandName: string
   category: CategoryKey
+  coverage: string
+  stores: string
+  benefitSummary: string
+  benefitFull: string
+  requirements: string
+  ages: string
+  clientType: string
+  detailCard: string
   image: string
-}
-
-export type BrandWithBenefits = {
-  name: string
-  benefits: string[]
+  status: 'validado' | 'pendiente'
 }
 
 export const categories: Record<CategoryKey, CategoryConfig> = {
@@ -51,108 +57,271 @@ export const categories: Record<CategoryKey, CategoryConfig> = {
   },
 }
 
-export const featuredBrands: BrandBenefit[] = [
+export const featuredBrands: Brand[] = [
+  // ── Comida y Bebidas (4) ──
   {
-    benefit: 'Descuento 20% en tu factura de cumpleaños',
-    brandName: 'El Gran Bistró',
+    id: 'starbucks-bebida',
+    brandName: 'Starbucks',
     category: 'Comida y Bebidas',
-    image: '/categories/food.jpg'
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas, App Starbucks Rewards y web www.starbucks.pe',
+    benefitSummary: 'Bebida gratis durante tu mes de cumpleaños',
+    benefitFull: 'Bebida tamaño Alta gratis durante tu mes de cumpleaños',
+    requirements: 'Starbucks Rewards member, +18, cuenta registrada, activo con compra en últimos 3 meses',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: Bebida gratis durante tu mes de cumpleaños\n2. Requisitos: Starbucks Rewards member, +18, cuenta registrada, activo con compra en últimos 3 meses\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas, App Starbucks Rewards y web www.starbucks.pe',
+    image: '/categories/food.jpg',
+    status: 'validado',
   },
   {
-    benefit: 'Spa completo gratis en tu día especial',
-    brandName: 'Glow Studio',
-    category: 'Cuidado Personal y Belleza',
-    image: '/categories/beauty.jpg'
+    id: 'chilis-helado',
+    brandName: "Chili's",
+    category: 'Comida y Bebidas',
+    coverage: 'Lima y Provincias',
+    stores: 'Locales Chili\'s a nivel nacional',
+    benefitSummary: 'Helado gratis el día de tu cumpleaños',
+    benefitFull: 'Helado gratis el día de tu cumpleaños',
+    requirements: 'Consumir en local y acreditar cumpleaños',
+    ages: 'Sin restricción',
+    clientType: 'Clientes / No Clientes',
+    detailCard: '1. Nombre de Beneficio: Helado gratis el día de tu cumpleaños\n2. Requisitos: Consumir en local y acreditar cumpleaños\n3. Cobertura: Lima y Provincias\n4. Tiendas: Locales Chili\'s a nivel nacional',
+    image: '/categories/food.jpg',
+    status: 'validado',
   },
   {
-    benefit: 'Descuento 25% en toda la tienda',
-    brandName: 'Urban Threads',
+    id: 'mcdonalds-mcflurry',
+    brandName: "McDonald's",
+    category: 'Comida y Bebidas',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas McDonald\'s',
+    benefitSummary: 'McFlurry Oreo gratis el día de tu cumpleaños',
+    benefitFull: 'McFlurry Oreo gratis el día de tu cumpleaños',
+    requirements: 'Registro en app McDonald\'s, cuenta activa, fecha de nacimiento registrada',
+    ages: 'Sin restricción',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: McFlurry Oreo gratis el día de tu cumpleaños\n2. Requisitos: Registro en app McDonald\'s, cuenta activa, fecha de nacimiento registrada\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas McDonald\'s',
+    image: '/categories/food.jpg',
+    status: 'validado',
+  },
+  {
+    id: 'pizzahut-copa',
+    brandName: 'Pizza Hut',
+    category: 'Comida y Bebidas',
+    coverage: 'Lima',
+    stores: 'Tiendas físicas Pizza Hut a nivel nacional',
+    benefitSummary: 'Copa Hut gratis el día de tu cumpleaños',
+    benefitFull: 'Copa Hut gratis el día de tu cumpleaños',
+    requirements: 'Consumo obligatorio en restaurante',
+    ages: 'Sin restricción',
+    clientType: 'Clientes / No Clientes',
+    detailCard: '1. Nombre de Beneficio: Copa Hut gratis el día de tu cumpleaños\n2. Requisitos: Consumo obligatorio en restaurante\n3. Cobertura: Lima\n4. Tiendas: Tiendas físicas Pizza Hut a nivel nacional',
+    image: '/categories/food.jpg',
+    status: 'validado',
+  },
+
+  // ── Ropa y accesorios (5) ──
+  {
+    id: 'bata-club',
+    brandName: 'Bata',
     category: 'Ropa y accesorios',
-    image: '/categories/retail.jpg'
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas BATA',
+    benefitSummary: 'Beneficios y puntos extra durante tu mes de cumpleaños',
+    benefitFull: 'Programa Bata Club: acumulación de puntos (3%), canje, descuentos en mes de cumpleaños',
+    requirements: 'Afiliación gratuita al programa Bata Club',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: Beneficios y puntos extra durante tu mes de cumpleaños\n2. Requisitos: Afiliación gratuita al programa Bata Club\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas BATA',
+    image: '/categories/retail.jpg',
+    status: 'validado',
   },
   {
-    benefit: 'Decoración especial gratis para tu celebración',
-    brandName: 'Home Decor Plus',
-    category: 'Hogar',
-    image: '/categories/home.jpg'
+    id: 'topitop-descuento',
+    brandName: 'Topitop',
+    category: 'Ropa y accesorios',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas Topitop',
+    benefitSummary: '50% de descuento durante tu mes de cumpleaños',
+    benefitFull: '50% de descuento durante tu mes de cumpleaños',
+    requirements: 'Cliente registrado, cupón por correo, presentar DNI',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: 50% de descuento durante tu mes de cumpleaños\n2. Requisitos: Cliente registrado, cupón por correo, presentar DNI\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Topitop',
+    image: '/categories/retail.jpg',
+    status: 'validado',
   },
   {
-    benefit: '2x1 en todas las películas del mes',
-    brandName: 'Cinema Plus',
+    id: 'adidas-descuento',
+    brandName: 'Adidas',
+    category: 'Ropa y accesorios',
+    coverage: 'Lima y Provincias',
+    stores: 'Web adidas.pe, adidas app y tiendas concepto adidas',
+    benefitSummary: '20% de descuento durante tu mes de cumpleaños',
+    benefitFull: '20% de descuento durante tu mes de cumpleaños',
+    requirements: 'Miembro adiClub, +18, cuenta con fecha de nacimiento registrada',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: 20% de descuento durante tu mes de cumpleaños\n2. Requisitos: Miembro adiClub, +18, cuenta con fecha de nacimiento registrada\n3. Cobertura: Lima y Provincias\n4. Tiendas: Web adidas.pe, adidas app y tiendas concepto adidas',
+    image: '/categories/retail.jpg',
+    status: 'validado',
+  },
+  {
+    id: 'sifrah-descuento',
+    brandName: 'Sifrah',
+    category: 'Ropa y accesorios',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas Sifrah y tienda online Sifrah.com',
+    benefitSummary: '20% de descuento durante tu mes de cumpleaños',
+    benefitFull: '20% de descuento durante tu mes de cumpleaños',
+    requirements: 'Cliente registrado en programa de fidelidad',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: 20% de descuento durante tu mes de cumpleaños\n2. Requisitos: Cliente registrado en programa de fidelidad\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Sifrah y tienda online Sifrah.com',
+    image: '/categories/retail.jpg',
+    status: 'validado',
+  },
+  {
+    id: 'isadora-puntos',
+    brandName: 'ISADORA',
+    category: 'Ropa y accesorios',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas Isadora y pe.isadoraonline.com',
+    benefitSummary: 'Puntos extra por tu cumpleaños',
+    benefitFull: 'Puntos extra por tu cumpleaños',
+    requirements: 'Registrado en ISACLUB, 30 días de anticipación',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: Puntos extra por tu cumpleaños\n2. Requisitos: Registrado en ISACLUB, 30 días de anticipación\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Isadora y pe.isadoraonline.com',
+    image: '/categories/retail.jpg',
+    status: 'validado',
+  },
+
+  // ── Cuidado Personal y Belleza (4) ──
+  {
+    id: 'aruma-descuento',
+    brandName: 'Aruma',
+    category: 'Cuidado Personal y Belleza',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas ARUMA y tienda online www.aruma.pe',
+    benefitSummary: '20% de descuento durante tu mes de cumpleaños',
+    benefitFull: '20% de descuento por cumpleaños (exclusivo para clientes Magenta Top) + Descuentos mensuales',
+    requirements: 'Ser miembro MAGENTA POINTS, +18, registro previo con DNI/email',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: 20% de descuento durante tu mes de cumpleaños\n2. Requisitos: Ser miembro MAGENTA POINTS, +18, registro previo con DNI/email\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas ARUMA y tienda online www.aruma.pe',
+    image: '/categories/beauty.jpg',
+    status: 'validado',
+  },
+  {
+    id: 'aruma-puntos',
+    brandName: 'Aruma',
+    category: 'Cuidado Personal y Belleza',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas ARUMA y tienda online www.aruma.pe',
+    benefitSummary: 'Puntos dobles en tus compras por tu cumpleaños',
+    benefitFull: 'Puntos dobles durante el mes de cumpleaños (Magenta Top)',
+    requirements: 'Ser miembro MAGENTA POINTS, +18, registro previo con DNI/email',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: Puntos dobles en tus compras por tu cumpleaños\n2. Requisitos: Ser miembro MAGENTA POINTS, +18, registro previo con DNI/email\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas ARUMA y tienda online www.aruma.pe',
+    image: '/categories/beauty.jpg',
+    status: 'validado',
+  },
+  {
+    id: 'natura-descuento',
+    brandName: 'Natura',
+    category: 'Cuidado Personal y Belleza',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas Natura y canal online',
+    benefitSummary: '30% de descuento y regalo por tu cumpleaños',
+    benefitFull: '30% de descuento y regalo por tu cumpleaños',
+    requirements: 'Cliente registrado, cupón CUMPLE30',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: 30% de descuento y regalo por tu cumpleaños\n2. Requisitos: Cliente registrado, cupón CUMPLE30\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Natura y canal online',
+    image: '/categories/beauty.jpg',
+    status: 'validado',
+  },
+  {
+    id: 'sentua-puntos',
+    brandName: 'Sentua',
+    category: 'Cuidado Personal y Belleza',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas Sentua y web www.sentua.com',
+    benefitSummary: 'Puntos de regalo por tu cumpleaños',
+    benefitFull: 'Puntos de regalo por tu cumpleaños',
+    requirements: 'Registrado en web, programa de fidelidad',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: Puntos de regalo por tu cumpleaños\n2. Requisitos: Registrado en web, programa de fidelidad\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas Sentua y web www.sentua.com',
+    image: '/categories/beauty.jpg',
+    status: 'validado',
+  },
+
+  // ── Entretenimiento y Experiencias (2) ──
+  {
+    id: 'lego-minifigura',
+    brandName: 'Lego',
     category: 'Entretenimiento y Experiencias',
-    image: '/categories/entertainment.jpg'
+    coverage: 'Lima Metropolitana y Arequipa',
+    stores: 'Tiendas físicas LEGO STORE en Lima: CC Jockey Plaza, CC Plaza San Miguel, CC Real Plaza Salaverry, CC Plaza Norte o en Arequipa: CC Mall Aventura Porongoche',
+    benefitSummary: 'Minifigura personalizada gratis por tu cumpleaños',
+    benefitFull: 'Minifigura personalizada que consta de 5 piezas: cabeza, torso, piernas, gorro o cabello y 1 accesorio + postal cumpleañera de regalo por cumpleaños',
+    requirements: 'Compra realizada el mismo día del cumpleaños, presentación de DNI físico y presencia de la persona que cumple años',
+    ages: '+3',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: Minifigura personalizada gratis por tu cumpleaños\n2. Requisitos: Compra realizada el mismo día del cumpleaños, presentación de DNI físico y presencia de la persona que cumple años\n3. Cobertura: Lima Metropolitana y Arequipa\n4. Tiendas: Tiendas físicas LEGO STORE en Lima: CC Jockey Plaza, CC Plaza San Miguel, CC Real Plaza Salaverry, CC Plaza Norte o en Arequipa: CC Mall Aventura Porongoche',
+    image: '/categories/entertainment.jpg',
+    status: 'validado',
   },
   {
-    benefit: 'Bebida premium gratis con cualquier compra',
-    brandName: 'Café y Grano',
-    category: 'Comida y Bebidas',
-    image: '/categories/food.jpg'
+    id: 'cineplanet-entrada',
+    brandName: 'Cineplanet',
+    category: 'Entretenimiento y Experiencias',
+    coverage: 'Lima y Provincias',
+    stores: 'Cines físicos Cineplanet a nivel nacional',
+    benefitSummary: 'Entrada 2D gratis por tu cumpleaños',
+    benefitFull: 'Entrada 2D gratis para cualquier película',
+    requirements: 'Socio Cineplanet, afiliado online, primera compra digital si nuevo',
+    ages: 'Sin restricción',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: Entrada 2D gratis por tu cumpleaños\n2. Requisitos: Socio Cineplanet, afiliado online, primera compra digital si nuevo\n3. Cobertura: Lima y Provincias\n4. Tiendas: Cines físicos Cineplanet a nivel nacional',
+    image: '/categories/entertainment.jpg',
+    status: 'validado',
   },
+
+  // ── Hogar (1) ──
   {
-    benefit: 'Tratamiento facial premium 50% descuento',
-    brandName: 'Skin Radiance',
-    category: 'Cuidado Personal y Belleza',
-    image: '/categories/beauty.jpg'
-  },
-  {
-    benefit: 'Compra una prenda, lleva otra gratis',
-    brandName: 'Style Haven',
-    category: 'Ropa y accesorios',
-    image: '/categories/retail.jpg'
+    id: 'casaideas-descuento',
+    brandName: 'Casa Ideas',
+    category: 'Hogar',
+    coverage: 'Lima y Provincias',
+    stores: 'Tiendas físicas Casaideas a nivel nacional',
+    benefitSummary: 'Descuento exclusivo durante tu mes de cumpleaños',
+    benefitFull: 'Descuento exclusivo durante tu mes de cumpleaños',
+    requirements: 'Inscrito en Programa Cliente Casaideas',
+    ages: '+18',
+    clientType: 'Clientes',
+    detailCard: '1. Nombre de Beneficio: Descuento exclusivo durante tu mes de cumpleaños\n2. Requisitos: Inscrito en Programa Cliente Casaideas\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Casaideas a nivel nacional',
+    image: '/categories/home.jpg',
+    status: 'validado',
   },
 ]
 
-export const allBrands: Record<CategoryKey, BrandWithBenefits[]> = {
-  'Comida y Bebidas': [
-    { name: 'El Gran Bistró', benefits: ['Descuento 20% en la factura', 'Entrada gratis a eventos especiales'] },
-    { name: 'Café y Grano', benefits: ['Bebida premium gratis', 'Pastel gratis con compra'] },
-    { name: 'Dulces Celebraciones', benefits: ['Torta personalizada 30% descuento', 'Decoración gratis'] },
-    { name: 'Olive Garden', benefits: ['2x1 en platos principales'] },
-    { name: 'Sushi Master', benefits: ['15% descuento en compra', 'Entrada a eventos gastronómicos'] },
-    { name: 'La Casa de la Pizza', benefits: ['Pizza mediana gratis con compra de grande'] },
-    { name: 'Cocktail Lounge', benefits: ['Trago gratis con entrada'] },
-    { name: 'Fresh & Fast', benefits: ['Combo desayuno gratis'] },
-  ],
-  'Ropa y accesorios': [
-    { name: 'Urban Threads', benefits: ['Descuento 25% en toda la tienda', 'Compra una prenda, lleva dos'] },
-    { name: 'Style Haven', benefits: ['Accesorios gratis con compra', '20% descuento extra en rebajas'] },
-    { name: 'Sports Central', benefits: ['Equipo deportivo 30% descuento', 'Delivery gratis'] },
-  ],
-  'Cuidado Personal y Belleza': [
-    { name: 'Glow Studio', benefits: ['Spa completo gratis', 'Tratamiento facial premium 50% descuento'] },
-    { name: 'Bloom Botanicals', benefits: ['Arreglo floral especial gratis', 'Consulta estilismo gratis'] },
-    { name: 'Luxe Nails', benefits: ['Manicura y pedicura 25% descuento'] },
-    { name: 'Hair Haven', benefits: ['Corte y tratamiento especial gratis'] },
-    { name: 'Skin Radiance', benefits: ['Facial de diamante 40% descuento'] },
-    { name: 'Beauty Bar', benefits: ['2 servicios por el precio de 1'] },
-    { name: 'The Wellness Spa', benefits: ['Masaje relajante gratis 1 hora'] },
-  ],
-  'Entretenimiento y Experiencias': [
-    { name: 'Cinema Plus', benefits: ['2x1 todas las películas', 'Combo snacks con descuento'] },
-    { name: 'Viajes Aventura', benefits: ['Descuento 25% en paquetes turísticos', 'Transferencias incluidas'] },
-    { name: 'Escape Room Co', benefits: ['Juego gratis para grupo'] },
-    { name: 'Game Zone', benefits: ['50 fichas gratis'] },
-    { name: 'Concert Hall', benefits: ['Entrada preferencial a conciertos'] },
-    { name: 'Museum Pass', benefits: ['Entrada gratis', 'Guía turístico gratis'] },
-    { name: 'Parque de Aventuras', benefits: ['Entrada general con 1 actividad gratis'] },
-  ],
-  'Hogar': [
-    { name: 'Home Decor Plus', benefits: ['2x1 en artículos seleccionados', 'Asesoría decoración gratis'] },
-    { name: 'Casa & Jardín', benefits: ['Plantas decorativas gratis', 'Descuento 20% en todo'] },
-    { name: 'Muebles Express', benefits: ['Envío gratis en compras', 'Armado sin costo'] },
-    { name: 'Textil Hogar', benefits: ['Juego de sábanas gratis', '30% descuento en cortinas'] },
-    { name: 'Cocina Gourmet', benefits: ['Set de utensilios 40% descuento', 'Libro recetas gratis'] },
-    { name: 'Electro Hogar', benefits: ['15% descuento en electrodomésticos', 'Garantía extendida gratis'] },
-    { name: 'Baño & Spa', benefits: ['Kit toallas premium gratis', 'Accesorios con descuento'] },
-  ],
+// Derive allBrands by category from featuredBrands (no duplicated data)
+export const allBrands: Record<CategoryKey, Brand[]> = {
+  'Comida y Bebidas': featuredBrands.filter(b => b.category === 'Comida y Bebidas'),
+  'Ropa y accesorios': featuredBrands.filter(b => b.category === 'Ropa y accesorios'),
+  'Cuidado Personal y Belleza': featuredBrands.filter(b => b.category === 'Cuidado Personal y Belleza'),
+  'Entretenimiento y Experiencias': featuredBrands.filter(b => b.category === 'Entretenimiento y Experiencias'),
+  'Hogar': featuredBrands.filter(b => b.category === 'Hogar'),
 }
 
-// Helper para obtener las marcas repetidas para el carrusel infinito
-export const getInfiniteBrands = (repeatCount: number = 3): BrandBenefit[] => {
-  return Array(repeatCount).fill(featuredBrands).flat()
-}
+// Jotai atom for brand detail popup
+export const selectedBrandAtom = atom<Brand | null>(null)
 
-// Helper para obtener todas las categorías
+// Helper to get all category keys
 export const getCategoryKeys = (): CategoryKey[] => {
   return Object.keys(categories) as CategoryKey[]
 }

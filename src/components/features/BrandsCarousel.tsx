@@ -3,10 +3,9 @@
 import { KeyboardEvent } from 'react'
 import { Text, Button } from '@/components/ui'
 import { useCarouselScroll } from '@/hooks/useCarouselScroll'
-import { getInfiniteBrands } from '@/data/brands'
+import { featuredBrands } from '@/data/brands'
 import { BrandCard } from './BrandCard'
-
-const infiniteBrands = getInfiniteBrands(2)
+import { BrandDetailPopUp } from './BrandDetailPopUp'
 
 export const BrandsCarousel = () => {
   const { scrollRef, canScrollLeft, canScrollRight, scroll, handleScroll } = useCarouselScroll(380)
@@ -91,21 +90,41 @@ export const BrandsCarousel = () => {
         aria-label="Carrusel de beneficios destacados. Usa las flechas izquierda y derecha para navegar."
         tabIndex={0}
       >
-        {infiniteBrands.map((brand, index) => (
+        {featuredBrands.map((brand, index) => (
           <BrandCard
-            key={`${brand.brandName}-${brand.benefit}-${index}`}
+            key={brand.id}
             brand={brand}
             index={index}
           />
         ))}
+
+        {/* End of scroll indicator */}
+        <div className="flex-shrink-0 w-[200px] md:w-[240px] snap-start flex items-center justify-center">
+          <div className="text-center px-4">
+            <div className="w-12 h-12 rounded-full bg-naples/20 dark:bg-naples/10 flex items-center justify-center mx-auto mb-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-6 h-6 text-naples"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <Text.SemiBold size="sm" color="dark" as="p" className="dark:text-white">
+              {featuredBrands.length} beneficios
+            </Text.SemiBold>
+            <Text.Regular size="xs" color="gray" as="p" className="mt-1">
+              Pronto más marcas
+            </Text.Regular>
+          </div>
+        </div>
       </div>
 
-      {/* Mobile scroll indicator */}
-      <div className="flex justify-center gap-1.5 mt-4 md:hidden" aria-hidden="true">
-        {infiniteBrands.slice(0, 8).map((_, index) => (
-          <div key={index} className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600" />
-        ))}
-      </div>
+      <BrandDetailPopUp />
     </div>
   )
 }

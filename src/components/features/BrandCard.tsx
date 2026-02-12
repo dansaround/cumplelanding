@@ -1,15 +1,19 @@
+'use client'
+
 import Image from 'next/image'
+import { useSetAtom } from 'jotai'
 import { Text, Button } from '@/components/ui'
-import { categories, type BrandBenefit, type CategoryKey } from '@/data/brands'
+import { categories, selectedBrandAtom, type Brand, type CategoryKey } from '@/data/brands'
 import { CategoryIcon } from './CategoryIcon'
 
 type BrandCardProps = {
-  brand: BrandBenefit
+  brand: Brand
   index: number
 }
 
 export const BrandCard = ({ brand, index }: BrandCardProps) => {
   const categoryConfig = categories[brand.category]
+  const setSelectedBrand = useSetAtom(selectedBrandAtom)
 
   return (
     <article
@@ -56,7 +60,7 @@ export const BrandCard = ({ brand, index }: BrandCardProps) => {
 
           {/* Benefit description */}
           <Text.Regular size="sm" color="white" as="p" className="opacity-90 line-clamp-2">
-            {brand.benefit}
+            {brand.benefitSummary}
           </Text.Regular>
 
           {/* CTA Button */}
@@ -64,10 +68,7 @@ export const BrandCard = ({ brand, index }: BrandCardProps) => {
             variant="primary"
             size="sm"
             className="mt-2 w-full"
-            onClick={() => {
-              // TODO: Implementar modal de detalles
-              console.log(`Ver detalles de ${brand.brandName}`)
-            }}
+            onClick={() => setSelectedBrand(brand)}
           >
             Ver Detalles
           </Button>
