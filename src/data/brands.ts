@@ -71,7 +71,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: Bebida gratis durante tu mes de cumpleaños\n2. Requisitos: Starbucks Rewards member, +18, cuenta registrada, activo con compra en últimos 3 meses\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas, App Starbucks Rewards y web www.starbucks.pe',
-    image: '/categories/food.jpg',
+    image: '/assets/benefits/starbucks.png',
     status: 'validado',
   },
   {
@@ -86,7 +86,7 @@ export const featuredBrands: Brand[] = [
     ages: 'Sin restricción',
     clientType: 'Clientes / No Clientes',
     detailCard: '1. Nombre de Beneficio: Helado gratis el día de tu cumpleaños\n2. Requisitos: Consumir en local y acreditar cumpleaños\n3. Cobertura: Lima y Provincias\n4. Tiendas: Locales Chili\'s a nivel nacional',
-    image: '/categories/food.jpg',
+    image: '/assets/benefits/chilis.png',
     status: 'validado',
   },
   {
@@ -101,7 +101,7 @@ export const featuredBrands: Brand[] = [
     ages: 'Sin restricción',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: McFlurry Oreo gratis el día de tu cumpleaños\n2. Requisitos: Registro en app McDonald\'s, cuenta activa, fecha de nacimiento registrada\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas McDonald\'s',
-    image: '/categories/food.jpg',
+    image: '/assets/benefits/mcdonalds.png',
     status: 'validado',
   },
   {
@@ -116,7 +116,7 @@ export const featuredBrands: Brand[] = [
     ages: 'Sin restricción',
     clientType: 'Clientes / No Clientes',
     detailCard: '1. Nombre de Beneficio: Copa Hut gratis el día de tu cumpleaños\n2. Requisitos: Consumo obligatorio en restaurante\n3. Cobertura: Lima\n4. Tiendas: Tiendas físicas Pizza Hut a nivel nacional',
-    image: '/categories/food.jpg',
+    image: '/assets/benefits/pizza-hut.png',
     status: 'validado',
   },
 
@@ -133,7 +133,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: Beneficios y puntos extra durante tu mes de cumpleaños\n2. Requisitos: Afiliación gratuita al programa Bata Club\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas BATA',
-    image: '/categories/retail.jpg',
+    image: '/assets/benefits/bata.png',
     status: 'validado',
   },
   {
@@ -148,7 +148,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: 50% de descuento durante tu mes de cumpleaños\n2. Requisitos: Cliente registrado, cupón por correo, presentar DNI\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Topitop',
-    image: '/categories/retail.jpg',
+    image: '/assets/benefits/topitop.png',
     status: 'validado',
   },
   {
@@ -163,7 +163,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: 20% de descuento durante tu mes de cumpleaños\n2. Requisitos: Miembro adiClub, +18, cuenta con fecha de nacimiento registrada\n3. Cobertura: Lima y Provincias\n4. Tiendas: Web adidas.pe, adidas app y tiendas concepto adidas',
-    image: '/categories/retail.jpg',
+    image: '/assets/benefits/adidas.png',
     status: 'validado',
   },
   {
@@ -178,7 +178,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: 20% de descuento durante tu mes de cumpleaños\n2. Requisitos: Cliente registrado en programa de fidelidad\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Sifrah y tienda online Sifrah.com',
-    image: '/categories/retail.jpg',
+    image: '/assets/benefits/sifrah.png',
     status: 'validado',
   },
   {
@@ -193,7 +193,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: Puntos extra por tu cumpleaños\n2. Requisitos: Registrado en ISACLUB, 30 días de anticipación\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Isadora y pe.isadoraonline.com',
-    image: '/categories/retail.jpg',
+    image: '/assets/benefits/isadora.png',
     status: 'validado',
   },
 
@@ -210,7 +210,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: 20% de descuento durante tu mes de cumpleaños\n2. Requisitos: Ser miembro MAGENTA POINTS, +18, registro previo con DNI/email\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas ARUMA y tienda online www.aruma.pe',
-    image: '/categories/beauty.jpg',
+    image: '/assets/benefits/aruma.png',
     status: 'validado',
   },
   {
@@ -225,7 +225,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: Puntos dobles en tus compras por tu cumpleaños\n2. Requisitos: Ser miembro MAGENTA POINTS, +18, registro previo con DNI/email\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas ARUMA y tienda online www.aruma.pe',
-    image: '/categories/beauty.jpg',
+    image: '/assets/benefits/aruma.png',
     status: 'validado',
   },
   {
@@ -240,7 +240,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: 30% de descuento y regalo por tu cumpleaños\n2. Requisitos: Cliente registrado, cupón CUMPLE30\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Natura y canal online',
-    image: '/categories/beauty.jpg',
+    image: '/assets/benefits/natura.png',
     status: 'validado',
   },
   {
@@ -255,7 +255,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: Puntos de regalo por tu cumpleaños\n2. Requisitos: Registrado en web, programa de fidelidad\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas Sentua y web www.sentua.com',
-    image: '/categories/beauty.jpg',
+    image: '/assets/benefits/sentua.png',
     status: 'validado',
   },
 
@@ -272,7 +272,7 @@ export const featuredBrands: Brand[] = [
     ages: '+3',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: Minifigura personalizada gratis por tu cumpleaños\n2. Requisitos: Compra realizada el mismo día del cumpleaños, presentación de DNI físico y presencia de la persona que cumple años\n3. Cobertura: Lima Metropolitana y Arequipa\n4. Tiendas: Tiendas físicas LEGO STORE en Lima: CC Jockey Plaza, CC Plaza San Miguel, CC Real Plaza Salaverry, CC Plaza Norte o en Arequipa: CC Mall Aventura Porongoche',
-    image: '/categories/entertainment.jpg',
+    image: '/assets/benefits/lego.png',
     status: 'validado',
   },
   {
@@ -287,7 +287,7 @@ export const featuredBrands: Brand[] = [
     ages: 'Sin restricción',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: Entrada 2D gratis por tu cumpleaños\n2. Requisitos: Socio Cineplanet, afiliado online, primera compra digital si nuevo\n3. Cobertura: Lima y Provincias\n4. Tiendas: Cines físicos Cineplanet a nivel nacional',
-    image: '/categories/entertainment.jpg',
+    image: '/assets/benefits/cineplanet.png',
     status: 'validado',
   },
 
@@ -304,7 +304,7 @@ export const featuredBrands: Brand[] = [
     ages: '+18',
     clientType: 'Clientes',
     detailCard: '1. Nombre de Beneficio: Descuento exclusivo durante tu mes de cumpleaños\n2. Requisitos: Inscrito en Programa Cliente Casaideas\n3. Cobertura: Lima y Provincias\n4. Tiendas: Tiendas físicas Casaideas a nivel nacional',
-    image: '/categories/home.jpg',
+    image: '/assets/benefits/casa-ideas.png',
     status: 'validado',
   },
 ]

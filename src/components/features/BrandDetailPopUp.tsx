@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useAtom } from 'jotai'
 import { Text, PopUp, Accordion } from '@/components/ui'
 import { selectedBrandAtom, categories } from '@/data/brands'
@@ -19,6 +20,21 @@ export const BrandDetailPopUp = () => {
       title={selectedBrand.brandName}
     >
       <div className="space-y-5">
+        {/* Brand hero image */}
+        <div className="relative w-full h-48 rounded-xl overflow-hidden">
+          <Image
+            src={selectedBrand.image}
+            alt={selectedBrand.brandName}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 480px"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+            aria-hidden="true"
+          />
+        </div>
+
         {/* Category badge */}
         <div className="flex items-center gap-2">
           <div

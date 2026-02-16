@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useSetAtom } from 'jotai'
 import { Text } from '@/components/ui'
 import { categories, allBrands, selectedBrandAtom, type CategoryKey } from '@/data/brands'
@@ -32,24 +33,37 @@ export const CategoryList = ({ category }: CategoryListProps) => {
       {/* Brands list */}
       <div className="space-y-4" aria-label={`Marcas de ${category}`}>
         {brands.map((brand) => (
-          <div key={brand.id} className="space-y-1.5">
-            {/* Brand name */}
-            <Text.SemiBold size="sm" color="dark" as="h5" className="dark:text-white">
-              {brand.brandName}
-            </Text.SemiBold>
+          <div key={brand.id} className="flex items-start gap-3">
+            {/* Brand thumbnail */}
+            <button
+              type="button"
+              className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 hover:ring-2 hover:ring-tomato transition-all"
+              onClick={() => setSelectedBrand(brand)}
+            >
+              <Image
+                src={brand.image}
+                alt={brand.brandName}
+                fill
+                className="object-cover"
+                sizes="48px"
+              />
+            </button>
 
-            {/* Benefit */}
-            <ul className="space-y-1 pl-3">
-              <li>
-                <button
-                  type="button"
-                  className="text-xs text-gray-600 dark:text-gray-400 hover:text-tomato dark:hover:text-tomato transition-colors inline-block text-left"
-                  onClick={() => setSelectedBrand(brand)}
-                >
-                  • {brand.benefitSummary}
-                </button>
-              </li>
-            </ul>
+            <div className="space-y-1">
+              {/* Brand name */}
+              <Text.SemiBold size="sm" color="dark" as="h5" className="dark:text-white">
+                {brand.brandName}
+              </Text.SemiBold>
+
+              {/* Benefit */}
+              <button
+                type="button"
+                className="text-xs text-gray-600 dark:text-gray-400 hover:text-tomato dark:hover:text-tomato transition-colors text-left"
+                onClick={() => setSelectedBrand(brand)}
+              >
+                • {brand.benefitSummary}
+              </button>
+            </div>
           </div>
         ))}
       </div>
