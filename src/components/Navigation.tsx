@@ -103,17 +103,18 @@ export const Navigation = () => {
       const sections = ['header', 'features', 'aliados', 'b2b']
       const scrollPosition = scrollY + 200
 
+      let currentSection = 'header'
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId)
         if (element) {
           const offsetTop = element.offsetTop
           const offsetHeight = element.offsetHeight
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId)
-            break
+            currentSection = sectionId
           }
         }
       }
+      setActiveSection(currentSection)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
