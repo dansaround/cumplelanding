@@ -36,3 +36,38 @@ html.dark body {
   background-color: #111827;
   color: #f5f5f5;
 }
+
+/* Birthday background animations */
+@keyframes balloon-float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.18;
+  }
+  75% {
+    opacity: 0.18;
+  }
+  100% {
+    transform: translateY(-45vh) rotate(var(--sway, 5deg));
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.25;
+  }
+  90% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(110vh) rotate(var(--spin, 720deg));
+    opacity: 0;
+  }
+}

@@ -12,7 +12,6 @@
     "@emailjs/browser": "^4.0.0",
     "jotai": "^2.17.0",
     "next": "^14.0.0",
-    "particles-bg": "^2.5.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-simple-image-viewer": "^1.2.2",

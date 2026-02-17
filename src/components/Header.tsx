@@ -1,15 +1,11 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { atom, useAtom } from "jotai";
 import { z } from "zod";
 import { useState, type FormEvent, type ChangeEvent } from "react";
 import { Text, Button, PopUp } from "@/components/ui";
 import { termsOfService, privacyPolicy } from "@/content/legal";
-
-const ParticlesBg = dynamic(() => import("particles-bg"), {
-  ssr: false,
-});
+import { BirthdayBackground } from "@/components/BirthdayBackground";
 
 // Date validation regex for dd/mm/yyyy format
 const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
@@ -197,12 +193,7 @@ export const Header = () => {
         id="header"
         className="min-h-screen bg-gradient-to-br from-cream to-white dark:from-gray-900 dark:to-gray-800 relative flex items-start lg:items-center py-10 px-5 overflow-x-hidden"
       >
-        <ParticlesBg
-          type="circle"
-          bg={{ zIndex: 0, position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
-          color="#FE4A4966"
-          num={10}
-        />
+        <BirthdayBackground />
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 max-w-7xl mx-auto w-full relative z-10">
           {/* Left Section - Content */}
